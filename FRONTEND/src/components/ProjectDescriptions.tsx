@@ -21,7 +21,7 @@ export const ProjectDescriptions: React.FC<ProjectDescriptionsProps> = ({ langua
   };
 
   return (
-    <div className="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-6 pb-10 flex flex-col md:flex-row items-end justify-between gap-8">
+    <div className="relative z-30 w-full max-w-7xl mx-auto px-2 sm:px-8 lg:px-12 pt-4 sm:pt-6 pb-6 sm:pb-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 md:gap-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ export const ProjectDescriptions: React.FC<ProjectDescriptionsProps> = ({ langua
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Behance Portfolio"
-          className="w-11 h-11 rounded-full border border-white/25 bg-zinc-900/80 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-zinc-950 transition-all duration-300 font-bold text-xs group shadow-lg"
+          className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/25 bg-zinc-900/80 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-zinc-950 transition-all duration-300 font-bold text-xs group shadow-lg"
         >
           <span className="group-hover:scale-110 transition-transform font-display">Bē</span>
         </a>
@@ -43,7 +43,7 @@ export const ProjectDescriptions: React.FC<ProjectDescriptionsProps> = ({ langua
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Telegram Channel"
-          className="w-11 h-11 rounded-full border border-white/25 bg-zinc-900/80 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-zinc-950 transition-all duration-300 group shadow-lg"
+          className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/25 bg-zinc-900/80 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-zinc-950 transition-all duration-300 group shadow-lg"
         >
           <Send className="w-4 h-4 transition-transform group-hover:scale-110 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </a>
@@ -53,7 +53,7 @@ export const ProjectDescriptions: React.FC<ProjectDescriptionsProps> = ({ langua
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram Profile"
-          className="w-11 h-11 rounded-full border border-white/25 bg-zinc-900/80 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-zinc-950 transition-all duration-300 group shadow-lg"
+          className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/25 bg-zinc-900/80 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-zinc-950 transition-all duration-300 group shadow-lg"
         >
           <Instagram className="w-4 h-4 transition-transform group-hover:scale-110" />
         </a>
@@ -63,13 +63,13 @@ export const ProjectDescriptions: React.FC<ProjectDescriptionsProps> = ({ langua
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.5 }}
-        className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl text-xs sm:text-[13px] leading-relaxed text-white/90 font-light"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl text-xs sm:text-[13px] leading-relaxed text-white/90 font-light"
       >
-        <div className="border-l border-white/20 pl-4 py-1">
+        <div className="border-l border-white/20 pl-3.5 sm:pl-4 py-0.5 sm:py-1">
           <p>{col1[language]}</p>
         </div>
 
-        <div className="border-l border-white/20 pl-4 py-1">
+        <div className="border-l border-white/20 pl-3.5 sm:pl-4 py-0.5 sm:py-1">
           <p>{col2[language]}</p>
         </div>
       </motion.div>

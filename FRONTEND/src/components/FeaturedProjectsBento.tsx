@@ -55,18 +55,18 @@ export const FeaturedProjectsBento: React.FC<FeaturedProjectsBentoProps> = ({
   const getDesc = (p: FeaturedProject) => typeof p.description === 'object' ? p.description[language] : p.description;
 
   return (
-    <section className="relative w-full py-16 px-4 sm:px-8 lg:px-12 my-12 bg-[#f6f4ee] text-zinc-900 rounded-[32px] sm:rounded-[44px] shadow-2xl border border-stone-300">
+    <section className="relative w-full py-10 sm:py-16 px-3 sm:px-8 lg:px-12 my-8 sm:my-12 bg-[#f6f4ee] text-zinc-900 rounded-[24px] sm:rounded-[44px] shadow-2xl border border-stone-300">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-stretch gap-8 lg:gap-10">
 
         <div className="lg:w-1/4 flex flex-col justify-between py-2 pr-2">
           <div>
-            <span className="text-xs font-bold tracking-[0.25em] text-[#b08d57] uppercase block mb-3 font-sans">
+            <span className="text-[10px] sm:text-xs font-bold tracking-[0.25em] text-[#b08d57] uppercase block mb-2 sm:mb-3 font-sans">
               {t.badge}
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-4xl font-serif text-zinc-900 leading-[1.2] font-bold mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-4xl font-serif text-zinc-900 leading-[1.2] font-bold mb-3 sm:mb-4 tracking-tight">
               {t.heading}
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-sans mb-8 font-normal">
+            <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-sans mb-6 sm:mb-8 font-normal">
               {t.subheading}
             </p>
           </div>
@@ -74,7 +74,7 @@ export const FeaturedProjectsBento: React.FC<FeaturedProjectsBentoProps> = ({
           <div>
             <button
               onClick={onOrderClick}
-              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-full border border-zinc-900/40 text-zinc-900 hover:border-zinc-900 hover:bg-zinc-900 hover:text-white transition-all duration-300 text-xs font-bold uppercase tracking-wider group shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-3 px-5 sm:px-6 py-3 sm:py-3.5 rounded-full border border-zinc-900/40 text-zinc-900 hover:border-zinc-900 hover:bg-zinc-900 hover:text-white transition-all duration-300 text-xs font-bold uppercase tracking-wider group shadow-sm cursor-pointer"
             >
               <span>{t.viewAll}</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -255,7 +255,7 @@ export const FeaturedProjectsBento: React.FC<FeaturedProjectsBentoProps> = ({
 
       <AnimatePresence>
         {selectedProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -269,7 +269,7 @@ export const FeaturedProjectsBento: React.FC<FeaturedProjectsBentoProps> = ({
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3 }}
-              className="relative w-full max-w-2xl bg-zinc-900 border border-white/20 rounded-3xl p-6 sm:p-8 text-white shadow-2xl z-10 overflow-hidden"
+              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-zinc-900 border border-white/20 rounded-3xl p-5 sm:p-8 text-white shadow-2xl z-10 my-auto"
             >
               <button
                 onClick={() => setSelectedProject(null)}

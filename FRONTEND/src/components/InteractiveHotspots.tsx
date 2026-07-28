@@ -50,7 +50,13 @@ export const InteractiveHotspots: React.FC<InteractiveHotspotsProps> = ({
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 5, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute left-1/2 bottom-full mb-3 -translate-x-1/2 w-64 sm:w-72 p-4 rounded-xl bg-zinc-950/95 border border-white/30 text-white shadow-2xl backdrop-blur-2xl pointer-events-auto"
+                  className={`absolute bottom-full mb-3 w-56 sm:w-72 p-3.5 sm:p-4 rounded-xl bg-zinc-950/95 border border-white/30 text-white shadow-2xl backdrop-blur-2xl pointer-events-auto ${
+                    spot.x < 30
+                      ? 'left-0 translate-x-0'
+                      : spot.x > 70
+                      ? 'right-0 left-auto translate-x-0'
+                      : 'left-1/2 -translate-x-1/2'
+                  }`}
                 >
                   <div className="flex items-start justify-between gap-2 mb-2">
                     <span className="inline-flex items-center gap-1 text-[10px] font-bold tracking-widest text-zinc-950 bg-white px-2 py-0.5 rounded-full uppercase">
@@ -59,17 +65,17 @@ export const InteractiveHotspots: React.FC<InteractiveHotspotsProps> = ({
                     </span>
                     <button
                       onClick={() => onSelectHotspot(null)}
-                      className="text-white/60 hover:text-white p-0.5"
+                      className="text-white/60 hover:text-white p-0.5 cursor-pointer"
                     >
                       <X className="w-3.5 h-3.5" />
                     </button>
                   </div>
 
-                  <h4 className="text-sm font-bold text-white font-display mb-1">
+                  <h4 className="text-xs sm:text-sm font-bold text-white font-display mb-1">
                     {spot.title[language]}
                   </h4>
 
-                  <p className="text-xs text-white/80 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-white/80 leading-relaxed">
                     {spot.description[language]}
                   </p>
                 </motion.div>

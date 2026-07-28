@@ -33,14 +33,14 @@ export default function App() {
       />
 
       <main className="relative z-20 flex-1 flex flex-col justify-between pt-2 pb-6">
-        <div id="home" className="px-4 sm:px-8 scroll-mt-24">
+        <div id="home" className="px-2 sm:px-8 scroll-mt-24">
           <HeroTypography language={language} />
         </div>
 
         <VillaSequenceShowcase language={language} />
 
         {bgMode !== 'minimal' && (
-          <div className="px-4 sm:px-8 pt-8">
+          <div className="px-2 sm:px-8 pt-4 sm:pt-8">
             <InteractiveHotspots
               hotspots={hotspots}
               activeHotspotId={activeHotspotId}
@@ -50,7 +50,7 @@ export default function App() {
           </div>
         )}
 
-        <div id="about" className="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-8 pt-6 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 scroll-mt-24">
+        <div id="about" className="relative z-30 w-full max-w-7xl mx-auto px-2 sm:px-8 pt-4 sm:pt-6 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 scroll-mt-24">
           <ProjectSpecsCard project={projectInfo} language={language} />
 
           <div className="w-full lg:w-auto">
@@ -58,7 +58,7 @@ export default function App() {
           </div>
         </div>
 
-        <div id="blueprint-section" className="w-full max-w-7xl mx-auto px-4 sm:px-8 pt-8 scroll-mt-24">
+        <div id="blueprint-section" className="w-full max-w-7xl mx-auto px-2 sm:px-8 pt-4 sm:pt-8 scroll-mt-24">
           <BlueprintMapSection
             language={language}
             onOrderClick={() => setIsOrderModalOpen(true)}
@@ -67,7 +67,7 @@ export default function App() {
           />
         </div>
 
-        <div id="featured-projects" className="w-full max-w-7xl mx-auto px-4 sm:px-8 pt-10 scroll-mt-24">
+        <div id="featured-projects" className="w-full max-w-7xl mx-auto px-2 sm:px-8 pt-6 sm:pt-10 scroll-mt-24">
           <FeaturedProjectsBento
             projects={featuredProjects}
             language={language}
@@ -75,25 +75,25 @@ export default function App() {
           />
         </div>
 
-        <div id="gallery" className="w-full max-w-7xl mx-auto px-4 sm:px-8 pt-4 scroll-mt-24">
+        <div id="gallery" className="w-full max-w-7xl mx-auto px-2 sm:px-8 pt-4 scroll-mt-24">
           <RealEstateGallery items={realEstateGallery} language={language} />
         </div>
 
-        <div id="publications" className="w-full max-w-7xl mx-auto px-4 sm:px-8 pt-6 scroll-mt-24">
+        <div id="publications" className="w-full max-w-7xl mx-auto px-2 sm:px-8 pt-4 sm:pt-6 scroll-mt-24">
           <InteriorShowcaseSection
             language={language}
             onOrderClick={() => setIsOrderModalOpen(true)}
           />
         </div>
 
-        <div id="plan-finder" className="w-full max-w-7xl mx-auto px-4 sm:px-8 pt-6 scroll-mt-24">
+        <div id="plan-finder" className="w-full max-w-7xl mx-auto px-2 sm:px-8 pt-4 sm:pt-6 scroll-mt-24">
           <PlanFilterSearchSection
             language={language}
             onOrderClick={() => setIsOrderModalOpen(true)}
           />
         </div>
 
-        <div id="pricing" className="w-full max-w-7xl mx-auto px-4 sm:px-8 pt-6 scroll-mt-24">
+        <div id="pricing" className="w-full max-w-7xl mx-auto px-2 sm:px-8 pt-4 sm:pt-6 scroll-mt-24">
           <PricingSection
             language={language}
             onOrderClick={() => setIsOrderModalOpen(true)}

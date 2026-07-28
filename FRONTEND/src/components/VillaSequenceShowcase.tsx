@@ -189,19 +189,19 @@ export const VillaSequenceShowcase: React.FC<VillaSequenceShowcaseProps> = ({ la
         <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#0a0a0d] to-transparent pointer-events-none z-10" />
         <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#0a0a0d] to-transparent pointer-events-none z-10" />
 
-        <div className="absolute top-8 left-6 sm:left-12 z-20 flex flex-col gap-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-xs font-mono text-white/80">
+        <div className="absolute top-4 left-4 sm:top-8 sm:left-12 z-20 flex flex-col gap-1.5 sm:gap-2 max-w-[80vw]">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[10px] sm:text-xs font-mono text-white/80 w-fit">
             <span className="w-2 h-2 rounded-full bg-[#b08d57] animate-pulse" />
             <span>{t.badge}</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white drop-shadow-md">
+          <h2 className="text-lg sm:text-2xl font-bold tracking-tight text-white drop-shadow-md">
             {t.title}
           </h2>
         </div>
 
-        <div className="absolute bottom-8 left-6 sm:left-12 z-20 flex items-center gap-4">
-          <div className="px-4 py-2 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center gap-3 text-xs font-mono text-white/90">
-            <Camera className="w-4 h-4 text-[#b08d57]" />
+        <div className="absolute bottom-4 left-4 sm:bottom-8 sm:left-12 z-20 flex items-center gap-2 sm:gap-4">
+          <div className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center gap-2 sm:gap-3 text-[11px] sm:text-xs font-mono text-white/90">
+            <Camera className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#b08d57]" />
             <span>{t.frame} {String(currentFrameDisplay).padStart(2, '0')} / {TOTAL_FRAMES}</span>
           </div>
 
@@ -211,9 +211,9 @@ export const VillaSequenceShowcase: React.FC<VillaSequenceShowcaseProps> = ({ la
           </div>
         </div>
 
-        <div className="absolute bottom-8 right-6 sm:right-12 z-20 flex flex-col items-center gap-1 text-white/50 text-[10px] font-mono uppercase tracking-widest">
+        <div className="absolute bottom-4 right-4 sm:bottom-8 sm:right-12 z-20 flex flex-col items-center gap-0.5 sm:gap-1 text-white/50 text-[9px] sm:text-[10px] font-mono uppercase tracking-widest">
           <span>{t.scroll}</span>
-          <ChevronDown className="w-4 h-4 animate-bounce text-[#b08d57]" />
+          <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-bounce text-[#b08d57]" />
         </div>
       </div>
     </section>

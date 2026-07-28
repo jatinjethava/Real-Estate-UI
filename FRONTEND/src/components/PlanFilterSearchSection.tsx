@@ -178,16 +178,16 @@ export const PlanFilterSearchSection: React.FC<PlanFilterSearchSectionProps> = (
   const t = copy[language];
 
   return (
-    <section className="relative w-full py-16 px-4 sm:px-8 lg:px-12 my-12 bg-zinc-950/90 text-white rounded-[32px] sm:rounded-[40px] border border-white/15 shadow-2xl overflow-hidden">
+    <section className="relative w-full py-10 sm:py-16 px-3 sm:px-8 lg:px-12 my-8 sm:my-12 bg-zinc-950/90 text-white rounded-[24px] sm:rounded-[40px] border border-white/15 shadow-2xl overflow-hidden">
       <div className="absolute inset-0 plan-grid-pattern opacity-30 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
-        <div className="text-center max-w-3xl mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] font-bold tracking-widest uppercase mb-3 bg-white/10 text-white border border-white/20">
+        <div className="text-center max-w-3xl mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-bold tracking-widest uppercase mb-2 sm:mb-3 bg-white/10 text-white border border-white/20">
             <SlidersHorizontal className="w-3.5 h-3.5 text-[#b08d57]" />
             {t.badge}
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight text-white mb-3">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight text-white mb-2 sm:mb-3">
             {t.title}
           </h2>
           <p className="text-xs sm:text-sm text-zinc-300 font-light max-w-xl mx-auto leading-relaxed">
@@ -195,18 +195,18 @@ export const PlanFilterSearchSection: React.FC<PlanFilterSearchSectionProps> = (
           </p>
         </div>
 
-        <div className="w-full max-w-5xl bg-zinc-900/90 border border-white/20 rounded-3xl sm:rounded-full p-2.5 sm:p-3 backdrop-blur-xl shadow-2xl mb-12">
-          <div className="grid grid-cols-2 sm:grid-cols-5 items-center gap-3 sm:gap-2 text-xs">
-            <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl sm:rounded-full bg-zinc-950/60 border border-white/10 hover:border-white/30 transition-colors">
-              <Ruler className="w-4 h-4 text-[#b08d57] shrink-0" />
-              <div className="flex flex-col text-left w-full">
-                <span className="text-[9px] font-bold tracking-wider text-zinc-400 uppercase">
+        <div className="w-full max-w-5xl bg-zinc-900/90 border border-white/20 rounded-2xl sm:rounded-full p-2.5 sm:p-3 backdrop-blur-xl shadow-2xl mb-8 sm:mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-5 items-center gap-2 sm:gap-2 text-xs">
+            <div className="flex items-center gap-2 px-2.5 sm:px-3.5 py-2 rounded-xl sm:rounded-full bg-zinc-950/60 border border-white/10 hover:border-white/30 transition-colors">
+              <Ruler className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#b08d57] shrink-0" />
+              <div className="flex flex-col text-left w-full overflow-hidden">
+                <span className="text-[8px] sm:text-[9px] font-bold tracking-wider text-zinc-400 uppercase truncate">
                   {t.sqftMinLabel}
                 </span>
                 <select
                   value={sqftMin}
                   onChange={(e) => setSqftMin(e.target.value)}
-                  className="bg-transparent text-xs font-bold text-white focus:outline-none cursor-pointer pr-1"
+                  className="bg-transparent text-[11px] sm:text-xs font-bold text-white focus:outline-none cursor-pointer pr-1 w-full"
                 >
                   <option value="800" className="bg-zinc-900">800 sq ft</option>
                   <option value="1200" className="bg-zinc-900">1,200 sq ft</option>
@@ -216,16 +216,16 @@ export const PlanFilterSearchSection: React.FC<PlanFilterSearchSectionProps> = (
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl sm:rounded-full bg-zinc-950/60 border border-white/10 hover:border-white/30 transition-colors">
-              <Ruler className="w-4 h-4 text-[#b08d57] shrink-0" />
-              <div className="flex flex-col text-left w-full">
-                <span className="text-[9px] font-bold tracking-wider text-zinc-400 uppercase">
+            <div className="flex items-center gap-2 px-2.5 sm:px-3.5 py-2 rounded-xl sm:rounded-full bg-zinc-950/60 border border-white/10 hover:border-white/30 transition-colors">
+              <Ruler className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#b08d57] shrink-0" />
+              <div className="flex flex-col text-left w-full overflow-hidden">
+                <span className="text-[8px] sm:text-[9px] font-bold tracking-wider text-zinc-400 uppercase truncate">
                   {t.sqftMaxLabel}
                 </span>
                 <select
                   value={sqftMax}
                   onChange={(e) => setSqftMax(e.target.value)}
-                  className="bg-transparent text-xs font-bold text-white focus:outline-none cursor-pointer pr-1"
+                  className="bg-transparent text-[11px] sm:text-xs font-bold text-white focus:outline-none cursor-pointer pr-1 w-full"
                 >
                   <option value="2000" className="bg-zinc-900">2,000 sq ft</option>
                   <option value="3500" className="bg-zinc-900">3,500 sq ft</option>
@@ -235,35 +235,35 @@ export const PlanFilterSearchSection: React.FC<PlanFilterSearchSectionProps> = (
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl sm:rounded-full bg-zinc-950/60 border border-white/10 hover:border-white/30 transition-colors">
-              <Bed className="w-4 h-4 text-[#b08d57] shrink-0" />
-              <div className="flex flex-col text-left w-full">
-                <span className="text-[9px] font-bold tracking-wider text-zinc-400 uppercase">
+            <div className="flex items-center gap-2 px-2.5 sm:px-3.5 py-2 rounded-xl sm:rounded-full bg-zinc-950/60 border border-white/10 hover:border-white/30 transition-colors">
+              <Bed className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#b08d57] shrink-0" />
+              <div className="flex flex-col text-left w-full overflow-hidden">
+                <span className="text-[8px] sm:text-[9px] font-bold tracking-wider text-zinc-400 uppercase truncate">
                   {t.bedroomsLabel}
                 </span>
                 <select
                   value={bedrooms}
                   onChange={(e) => setBedrooms(e.target.value)}
-                  className="bg-transparent text-xs font-bold text-white focus:outline-none cursor-pointer pr-1"
+                  className="bg-transparent text-[11px] sm:text-xs font-bold text-white focus:outline-none cursor-pointer pr-1 w-full"
                 >
-                  <option value="1" className="bg-zinc-900">1 Bedroom</option>
-                  <option value="2" className="bg-zinc-900">2 Bedrooms</option>
-                  <option value="3" className="bg-zinc-900">3 Bedrooms</option>
-                  <option value="4" className="bg-zinc-900">4+ Bedrooms</option>
+                  <option value="1" className="bg-zinc-900">1 Bed</option>
+                  <option value="2" className="bg-zinc-900">2 Beds</option>
+                  <option value="3" className="bg-zinc-900">3 Beds</option>
+                  <option value="4" className="bg-zinc-900">4+ Beds</option>
                 </select>
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl sm:rounded-full bg-zinc-950/60 border border-white/10 hover:border-white/30 transition-colors">
-              <Bath className="w-4 h-4 text-[#b08d57] shrink-0" />
-              <div className="flex flex-col text-left w-full">
-                <span className="text-[9px] font-bold tracking-wider text-zinc-400 uppercase">
+            <div className="flex items-center gap-2 px-2.5 sm:px-3.5 py-2 rounded-xl sm:rounded-full bg-zinc-950/60 border border-white/10 hover:border-white/30 transition-colors">
+              <Bath className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#b08d57] shrink-0" />
+              <div className="flex flex-col text-left w-full overflow-hidden">
+                <span className="text-[8px] sm:text-[9px] font-bold tracking-wider text-zinc-400 uppercase truncate">
                   {t.bathsLabel}
                 </span>
                 <select
                   value={baths}
                   onChange={(e) => setBaths(e.target.value)}
-                  className="bg-transparent text-xs font-bold text-white focus:outline-none cursor-pointer pr-1"
+                  className="bg-transparent text-[11px] sm:text-xs font-bold text-white focus:outline-none cursor-pointer pr-1 w-full"
                 >
                   <option value="1" className="bg-zinc-900">1 Bath</option>
                   <option value="2" className="bg-zinc-900">2 Baths</option>
@@ -275,16 +275,16 @@ export const PlanFilterSearchSection: React.FC<PlanFilterSearchSectionProps> = (
 
             <button
               onClick={onOrderClick}
-              className="col-span-2 sm:col-span-1 w-full h-full min-h-[44px] px-5 py-2.5 rounded-2xl sm:rounded-full bg-[#b08d57] hover:bg-[#c5a065] text-white font-bold transition-all flex items-center justify-center gap-2 text-xs uppercase tracking-widest shadow-xl group cursor-pointer"
+              className="col-span-2 sm:col-span-1 w-full h-full min-h-[40px] px-4 py-2 sm:py-2.5 rounded-xl sm:rounded-full bg-[#b08d57] hover:bg-[#c5a065] text-white font-bold transition-all flex items-center justify-center gap-2 text-xs uppercase tracking-widest shadow-xl group cursor-pointer"
             >
               <span>{t.browseBtn}</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
             </button>
 
           </div>
         </div>
 
-        <div className="w-full relative rounded-3xl sm:rounded-[36px] overflow-hidden border border-white/20 bg-[#f7f6f2] text-zinc-950 shadow-2xl flex flex-col items-center p-6 sm:p-10 md:p-12">
+        <div className="w-full relative rounded-2xl sm:rounded-[36px] overflow-hidden border border-white/20 bg-[#f7f6f2] text-zinc-950 shadow-2xl flex flex-col items-center p-4 sm:p-10 md:p-12">
 
           <div className="absolute inset-0 plan-grid-pattern opacity-20 pointer-events-none" />
 

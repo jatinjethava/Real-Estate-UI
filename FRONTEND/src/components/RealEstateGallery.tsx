@@ -40,7 +40,7 @@ export const RealEstateGallery: React.FC<RealEstateGalleryProps> = ({ items, lan
   };
 
   return (
-    <section className="relative w-full py-16 px-4 sm:px-8 lg:px-12 my-12 overflow-hidden rounded-3xl border border-white/15 bg-zinc-950/90 shadow-2xl">
+    <section className="relative w-full py-10 sm:py-16 px-3 sm:px-8 lg:px-12 my-8 sm:my-12 overflow-hidden rounded-3xl border border-white/15 bg-zinc-950/90 shadow-2xl">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentItem.id}
@@ -62,16 +62,16 @@ export const RealEstateGallery: React.FC<RealEstateGalleryProps> = ({ items, lan
       </AnimatePresence>
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
-        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 text-center sm:text-left border-b border-white/10 pb-4">
+        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 sm:mb-8 text-center sm:text-left border-b border-white/10 pb-4">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-2xl bg-white/10 border border-white/20 text-white shadow-lg backdrop-blur-md">
-              <Layers className="w-5 h-5" />
+            <div className="p-2 sm:p-2.5 rounded-2xl bg-white/10 border border-white/20 text-white shadow-lg backdrop-blur-md">
+              <Layers className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
               <span className="text-[10px] font-bold tracking-widest text-white/70 uppercase">
                 {language === 'RU' ? 'ВИЗУАЛИЗАЦИЯ И РЕНДЕРЫ' : 'REAL ESTATE GALLERY'}
               </span>
-              <h2 className="text-xl sm:text-2xl font-bold font-display uppercase text-white tracking-tight">
+              <h2 className="text-lg sm:text-2xl font-bold font-display uppercase text-white tracking-tight">
                 BUILD cotta — {language === 'RU' ? 'Архитектурный Обзор' : 'Architectural Views'}
               </h2>
             </div>
@@ -80,7 +80,7 @@ export const RealEstateGallery: React.FC<RealEstateGalleryProps> = ({ items, lan
           <div className="flex items-center gap-3">
             <button
               onClick={() => setIsPlaying(!isPlaying)}
-              className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/20 bg-zinc-900/80 backdrop-blur-md text-xs font-semibold text-white hover:border-white transition-all shadow-md"
+              className="flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full border border-white/20 bg-zinc-900/80 backdrop-blur-md text-xs font-semibold text-white hover:border-white transition-all shadow-md cursor-pointer"
             >
               {isPlaying ? (
                 <>
@@ -101,7 +101,7 @@ export const RealEstateGallery: React.FC<RealEstateGalleryProps> = ({ items, lan
           </div>
         </div>
 
-        <div className="relative w-full h-[360px] sm:h-[420px] md:h-[480px] flex items-center justify-center my-4">
+        <div className="relative w-full h-[380px] sm:h-[420px] md:h-[480px] flex items-center justify-center my-2 sm:my-4">
           {items.map((item, index) => {
             const offset = getOffset(index);
             const isCenter = offset === 0;
@@ -122,29 +122,29 @@ export const RealEstateGallery: React.FC<RealEstateGalleryProps> = ({ items, lan
               zIndex = 40;
               opacity = 1;
             } else if (isLeft) {
-              translateX = '-55%';
+              translateX = '-52%';
               scale = 0.82;
               zIndex = 20;
-              opacity = 0.65;
-              rotateY = 12;
+              opacity = 0.5;
+              rotateY = 10;
             } else if (isRight) {
-              translateX = '55%';
+              translateX = '52%';
               scale = 0.82;
               zIndex = 20;
-              opacity = 0.65;
-              rotateY = -12;
+              opacity = 0.5;
+              rotateY = -10;
             } else if (isFarLeft) {
-              translateX = '-100%';
+              translateX = '-95%';
               scale = 0.65;
               zIndex = 10;
-              opacity = 0.25;
-              rotateY = 20;
+              opacity = 0.15;
+              rotateY = 18;
             } else if (isFarRight) {
-              translateX = '100%';
+              translateX = '95%';
               scale = 0.65;
               zIndex = 10;
-              opacity = 0.25;
-              rotateY = -20;
+              opacity = 0.15;
+              rotateY = -18;
             } else {
               opacity = 0;
             }
@@ -164,7 +164,7 @@ export const RealEstateGallery: React.FC<RealEstateGalleryProps> = ({ items, lan
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 style={{ zIndex }}
-                className={`absolute w-[88%] sm:w-[70%] max-w-[680px] h-full rounded-[28px] sm:rounded-[36px] overflow-hidden border cursor-pointer select-none shadow-2xl transition-all ${isCenter
+                className={`absolute w-[92%] sm:w-[70%] max-w-[680px] h-full rounded-[24px] sm:rounded-[36px] overflow-hidden border cursor-pointer select-none shadow-2xl transition-all ${isCenter
                   ? 'border-white/50 shadow-[0_20px_50px_rgba(0,0,0,0.8)] ring-1 ring-white/30'
                   : 'border-white/15 hover:border-white/40'
                   }`}

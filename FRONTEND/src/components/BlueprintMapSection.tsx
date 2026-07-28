@@ -277,21 +277,21 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
   return (
     <section
       id="blueprint-section"
-      className={`relative w-full py-16 px-4 sm:px-8 lg:px-12 my-12 rounded-[32px] sm:rounded-[40px] border transition-colors duration-700 shadow-2xl overflow-hidden ${theme === 'blueprint'
+      className={`relative w-full py-10 sm:py-16 px-3 sm:px-8 lg:px-12 my-8 sm:my-12 rounded-[24px] sm:rounded-[40px] border transition-colors duration-700 shadow-2xl overflow-hidden ${theme === 'blueprint'
         ? 'bg-[#02182b] border-sky-500/40 text-white'
         : 'bg-[#0a0a0d] border-white/20 text-white'
         }`}
     >
       <div className="absolute inset-0 plan-grid-pattern opacity-40 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-8">
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-6 sm:gap-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b pb-6 border-current/10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold tracking-widest uppercase mb-3 bg-sky-500/20 text-sky-400 border border-sky-500/30">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-bold tracking-widest uppercase mb-2 sm:mb-3 bg-sky-500/20 text-sky-400 border border-sky-500/30">
               <Layers className="w-3.5 h-3.5" />
               {t.badge}
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight">
               {t.title}
             </h2>
             <p className="text-xs sm:text-sm font-light opacity-80 max-w-2xl mt-2 leading-relaxed">
@@ -299,10 +299,10 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
             </p>
           </div>
 
-          <div className="flex items-center p-1.5 rounded-full bg-black/30 backdrop-blur-md border border-current/20 gap-1 self-start md:self-auto">
+          <div className="flex items-center p-1 sm:p-1.5 rounded-full bg-black/30 backdrop-blur-md border border-current/20 gap-1 self-start md:self-auto">
             <button
               onClick={() => setTheme('blueprint')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${theme === 'blueprint'
+              className={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${theme === 'blueprint'
                 ? 'bg-sky-500 text-zinc-950 shadow-lg'
                 : 'text-current opacity-70 hover:opacity-100'
                 }`}
@@ -311,7 +311,7 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
             </button>
             <button
               onClick={() => setTheme('dark')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${theme === 'dark'
+              className={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${theme === 'dark'
                 ? 'bg-white text-zinc-950 shadow-lg'
                 : 'text-current opacity-70 hover:opacity-100'
                 }`}
@@ -321,16 +321,16 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-black/20 border border-current/10 text-xs">
-          <span className="font-bold tracking-widest uppercase flex items-center gap-2 text-current/80">
-            <Grid className="w-4 h-4 text-sky-400" />
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 sm:p-4 rounded-2xl bg-black/20 border border-current/10 text-xs">
+          <span className="font-bold tracking-widest uppercase flex items-center gap-2 text-current/80 text-[11px] sm:text-xs">
+            <Grid className="w-4 h-4 text-sky-400 shrink-0" />
             {t.layersTitle}:
           </span>
 
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-3">
             <button
               onClick={() => setShowAxes(!showAxes)}
-              className={`px-3 py-1.5 rounded-xl border transition-all flex items-center gap-1.5 font-semibold ${showAxes
+              className={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl border transition-all flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold cursor-pointer ${showAxes
                 ? 'bg-sky-500/20 border-sky-400 text-sky-300'
                 : 'bg-black/20 border-current/20 opacity-50'
                 }`}
@@ -341,7 +341,7 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
 
             <button
               onClick={() => setShowPiles(!showPiles)}
-              className={`px-3 py-1.5 rounded-xl border transition-all flex items-center gap-1.5 font-semibold ${showPiles
+              className={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl border transition-all flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold cursor-pointer ${showPiles
                 ? 'bg-sky-500/20 border-sky-400 text-sky-300'
                 : 'bg-black/20 border-current/20 opacity-50'
                 }`}
@@ -352,7 +352,7 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
 
             <button
               onClick={() => setShowDimensions(!showDimensions)}
-              className={`px-3 py-1.5 rounded-xl border transition-all flex items-center gap-1.5 font-semibold ${showDimensions
+              className={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl border transition-all flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold cursor-pointer ${showDimensions
                 ? 'bg-sky-500/20 border-sky-400 text-sky-300'
                 : 'bg-black/20 border-current/20 opacity-50'
                 }`}
@@ -363,7 +363,7 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
 
             <button
               onClick={() => setShowLabels(!showLabels)}
-              className={`px-3 py-1.5 rounded-xl border transition-all flex items-center gap-1.5 font-semibold ${showLabels
+              className={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl border transition-all flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold cursor-pointer ${showLabels
                 ? 'bg-sky-500/20 border-sky-400 text-sky-300'
                 : 'bg-black/20 border-current/20 opacity-50'
                 }`}

@@ -107,18 +107,18 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
 
-        <div className="w-full bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border border-white/20 rounded-3xl p-8 sm:p-10 mb-16 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="w-full bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border border-white/20 rounded-2xl sm:rounded-3xl p-5 sm:p-10 mb-10 sm:mb-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6 shadow-2xl">
           <div className="text-left max-w-2xl">
             <span className="text-[10px] font-bold tracking-widest uppercase text-sky-400 mb-1 block">
               BUILD ARCHITECTS • TAILORED DESIGNS
             </span>
-            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
+            <h3 className="text-xl sm:text-3xl font-serif font-bold text-white tracking-tight">
               {t.ctaTitle}
             </h3>
           </div>
           <button
             onClick={onOrderClick}
-            className="px-8 py-4 rounded-full bg-white text-zinc-950 font-bold hover:bg-sky-400 transition-all text-xs uppercase tracking-widest shadow-xl flex items-center gap-2 group shrink-0 cursor-pointer"
+            className="w-full sm:w-auto justify-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white text-zinc-950 font-bold hover:bg-sky-400 transition-all text-xs uppercase tracking-widest shadow-xl flex items-center gap-2 group shrink-0 cursor-pointer"
           >
             <span>{t.ctaBtn}</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

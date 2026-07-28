@@ -84,18 +84,18 @@ export const InteriorShowcaseSection: React.FC<InteriorShowcaseSectionProps> = (
     'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=80';
 
   return (
-    <section className="relative w-full py-16 px-4 sm:px-8 lg:px-12 my-12 bg-zinc-950/90 text-white rounded-[32px] sm:rounded-[40px] border border-white/15 shadow-2xl overflow-hidden">
+    <section className="relative w-full py-10 sm:py-16 px-3 sm:px-8 lg:px-12 my-8 sm:my-12 bg-zinc-950/90 text-white rounded-[24px] sm:rounded-[40px] border border-white/15 shadow-2xl overflow-hidden">
       <div className="absolute inset-0 plan-grid-pattern opacity-30 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
-        <div className="w-full bg-[#f6f4ee] rounded-[24px] sm:rounded-[32px] p-4 sm:p-8 md:p-10 text-zinc-900 border border-stone-300 shadow-xl mb-12">
+        <div className="w-full bg-[#f6f4ee] rounded-[20px] sm:rounded-[32px] p-4 sm:p-8 md:p-10 text-zinc-900 border border-stone-300 shadow-xl mb-8 sm:mb-12">
 
-          <div className="flex items-center justify-between mb-6 pb-4 border-b border-stone-300/80">
+          <div className="flex items-center justify-between mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-stone-300/80">
             <div className="flex items-center gap-2">
-              <span className="p-2 rounded-xl bg-zinc-900 text-[#b08d57]">
-                <Home className="w-4 h-4" />
+              <span className="p-1.5 sm:p-2 rounded-xl bg-zinc-900 text-[#b08d57]">
+                <Home className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </span>
-              <span className="text-xs font-bold tracking-[0.2em] text-[#b08d57] uppercase">
+              <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] text-[#b08d57] uppercase">
                 {t.badge}
               </span>
             </div>
@@ -104,7 +104,7 @@ export const InteriorShowcaseSection: React.FC<InteriorShowcaseSectionProps> = (
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 lg:gap-8">
 
             <motion.div
               whileHover={{ y: -6 }}

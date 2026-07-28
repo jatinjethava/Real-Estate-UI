@@ -45,45 +45,45 @@ export const ProjectSpecsCard: React.FC<ProjectSpecsCardProps> = ({ project, lan
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.3 }}
-      className="relative z-30 w-full max-w-sm sm:max-w-md bg-zinc-900/80 backdrop-blur-xl border border-white/20 rounded-2xl p-5 sm:p-6 shadow-2xl hover:border-white/40 transition-all group"
+      className="relative z-30 w-full max-w-full sm:max-w-md bg-zinc-900/80 backdrop-blur-xl border border-white/20 rounded-2xl p-4 sm:p-6 shadow-2xl hover:border-white/40 transition-all group"
     >
       <div className="flex items-center justify-between mb-3 border-b border-white/10 pb-2">
-        <span className="text-[10px] font-bold tracking-widest text-white/60 uppercase">
+        <span className="text-[10px] sm:text-xs font-bold tracking-widest text-white/60 uppercase truncate pr-2">
           {t.header}
         </span>
-        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-white/10 text-white border border-white/20">
+        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-white/10 text-white border border-white/20 shrink-0">
           BUILD cotta
         </span>
       </div>
 
       <div className="space-y-2 text-xs sm:text-[13px] leading-relaxed text-white">
-        <div className="flex items-baseline justify-between gap-2">
-          <span className="text-white/60 font-medium">{t.studio}</span>
+        <div className="flex items-baseline justify-between gap-3">
+          <span className="text-white/60 font-medium shrink-0">{t.studio}</span>
           <span className="font-bold text-white text-right font-display">{project.studio}</span>
         </div>
 
-        <div className="flex items-baseline justify-between gap-2">
-          <span className="text-white/60 font-medium">{t.architects}</span>
+        <div className="flex items-baseline justify-between gap-3">
+          <span className="text-white/60 font-medium shrink-0">{t.architects}</span>
           <span className="font-semibold text-white text-right">{project.architects.join(', ')}</span>
         </div>
 
-        <div className="flex items-baseline justify-between gap-2">
-          <span className="text-white/60 font-medium">{t.location}</span>
+        <div className="flex items-baseline justify-between gap-3">
+          <span className="text-white/60 font-medium shrink-0">{t.location}</span>
           <span className="font-semibold text-white text-right">{project.location[language]}</span>
         </div>
 
-        <div className="flex items-baseline justify-between gap-2">
-          <span className="text-white/60 font-medium">{t.area}</span>
-          <span className="font-bold text-white text-right font-display text-sm">{project.area}</span>
+        <div className="flex items-baseline justify-between gap-3">
+          <span className="text-white/60 font-medium shrink-0">{t.area}</span>
+          <span className="font-bold text-white text-right font-display text-xs sm:text-sm">{project.area}</span>
         </div>
 
-        <div className="flex items-baseline justify-between gap-2">
-          <span className="text-white/60 font-medium">{t.year}</span>
+        <div className="flex items-baseline justify-between gap-3">
+          <span className="text-white/60 font-medium shrink-0">{t.year}</span>
           <span className="font-bold text-white text-right font-display">{project.year}</span>
         </div>
 
-        <div className="flex items-baseline justify-between gap-2">
-          <span className="text-white/60 font-medium">{t.category}</span>
+        <div className="flex items-baseline justify-between gap-3">
+          <span className="text-white/60 font-medium shrink-0">{t.category}</span>
           <span className="font-semibold text-white text-right">{project.category[language]}</span>
         </div>
       </div>

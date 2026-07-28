@@ -93,17 +93,18 @@ export const OrderProjectModal: React.FC<OrderProjectModalProps> = ({
             className="fixed inset-0 bg-zinc-950/80 backdrop-blur-xl"
           />
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.3 }}
-            className="relative w-full max-w-xl bg-zinc-900 border border-white/20 rounded-3xl p-6 sm:p-8 text-white shadow-2xl z-10 my-8 overflow-hidden"
-          >
-            <button
-              onClick={onClose}
-              className="absolute top-6 right-6 p-2 rounded-full border border-white/20 text-white/70 hover:text-white hover:border-white transition-colors"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-zinc-900 border border-white/20 rounded-3xl p-5 sm:p-8 text-white shadow-2xl z-10 my-auto"
             >
+              <button
+                onClick={onClose}
+                aria-label="Close modal"
+                className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full border border-white/20 text-white/70 hover:text-white hover:border-white transition-colors cursor-pointer"
+              >
               <X className="w-5 h-5" />
             </button>
 

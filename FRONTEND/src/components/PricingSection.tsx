@@ -156,23 +156,23 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ language, onOrde
   const t = translations[language];
 
   return (
-    <section id="pricing" className="relative w-full py-16 sm:py-20 px-4 sm:px-8 lg:px-12 my-12 bg-zinc-950/90 text-white rounded-[32px] sm:rounded-[48px] border border-white/15 shadow-2xl overflow-hidden">
+    <section id="pricing" className="relative w-full py-10 sm:py-20 px-3 sm:px-8 lg:px-12 my-8 sm:my-12 bg-zinc-950/90 text-white rounded-[24px] sm:rounded-[48px] border border-white/15 shadow-2xl overflow-hidden">
       <div className="absolute inset-0 plan-grid-pattern opacity-20 pointer-events-none" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#b08d57]/10 blur-[130px] pointer-events-none rounded-full" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[320px] sm:w-[600px] h-[200px] sm:h-[300px] bg-[#b08d57]/10 blur-[90px] sm:blur-[130px] pointer-events-none rounded-full" />
 
       <div className="absolute top-6 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
-        <span className="font-display text-[13vw] sm:text-[14vw] font-black uppercase tracking-tight text-white/5 leading-none block whitespace-nowrap">
+        <span className="font-display text-[12vw] sm:text-[14vw] font-black uppercase tracking-tight text-white/5 leading-none block whitespace-nowrap">
           {t.titleBg}
         </span>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
-        <div className="text-center max-w-2xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-bold tracking-widest uppercase mb-3 bg-[#b08d57]/15 text-[#e5c185] border border-[#b08d57]/30">
+        <div className="text-center max-w-2xl mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-bold tracking-widest uppercase mb-2 sm:mb-3 bg-[#b08d57]/15 text-[#e5c185] border border-[#b08d57]/30">
             <Sparkles className="w-3.5 h-3.5 text-[#b08d57]" />
             {t.badge}
           </div>
-          <h2 className="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-white mb-3">
+          <h2 className="text-2xl sm:text-5xl font-display font-extrabold tracking-tight text-white mb-2 sm:mb-3">
             {t.heading}
           </h2>
           <p className="text-xs sm:text-sm text-zinc-400 font-light max-w-lg mx-auto leading-relaxed">
@@ -180,7 +180,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ language, onOrde
           </p>
         </div>
 
-        <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-center pt-2">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-8 items-center pt-2">
           {t.plans.map((plan, index) => {
             const isPremium = plan.isPopular;
             return (
@@ -190,7 +190,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ language, onOrde
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.15 }}
-                className={`relative w-full rounded-[32px] sm:rounded-[44px] p-7 sm:p-9 flex flex-col justify-between transition-all duration-500 backdrop-blur-xl group ${isPremium
+                className={`relative w-full rounded-[24px] sm:rounded-[44px] p-5 sm:p-9 flex flex-col justify-between transition-all duration-500 backdrop-blur-xl group ${isPremium
                   ? 'bg-zinc-900/90 border-2 border-[#b08d57] shadow-[0_0_50px_rgba(176,141,87,0.3)] lg:-translate-y-4'
                   : 'bg-zinc-900/50 border border-white/15 hover:border-[#b08d57]/60 shadow-xl'
                   }`}
