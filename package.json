@@ -10,5 +10,14 @@
     "build": "npm --prefix FRONTEND run build",
     "preview": "npm --prefix FRONTEND run preview",
     "lint": "npm --prefix FRONTEND run lint"
+  },
+  "dependencies": {
+    "lightningcss": "^1.29.1",
+    "vite": "^6.2.3"
+  },
+  "optionalDependencies": {
+    "lightningcss-linux-x64-gnu": "^1.29.1",
+    "lightningcss-linux-x64-musl": "^1.29.1",
+    "lightningcss-win32-x64-msvc": "^1.29.1"
   }
 }
