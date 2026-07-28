@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { GalleryItem, Language } from '../types';
-import { ChevronLeft, ChevronRight, Maximize2, Pause, Play, Sparkles, Building, Layers } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Maximize2, Pause, Play, Sparkles, Building, Layers, X } from 'lucide-react';
 
 interface RealEstateGalleryProps {
   items: GalleryItem[];
@@ -259,28 +259,34 @@ export const RealEstateGallery: React.FC<RealEstateGalleryProps> = ({ items, lan
             className="fixed inset-0 z-50 bg-zinc-950/95 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-8"
             onClick={() => setFullscreenImage(null)}
           >
-            <button
-              onClick={() => setFullscreenImage(null)}
-              className="absolute top-6 right-6 p-3 rounded-full bg-white/10 hover:bg-white hover:text-zinc-950 text-white border border-white/30 transition-all z-10"
+
+            <div
+              className="relative max-w-5xl w-full max-h-[90dvh] sm:max-h-[90vh] rounded-3xl overflow-hidden border border-white/20 shadow-2xl flex flex-col bg-zinc-900"
+              onClick={(e) => e.stopPropagation()}
             >
-              ✕
-            </button>
-            <div className="relative max-w-5xl w-full max-h-[90vh] rounded-3xl overflow-hidden border border-white/20 shadow-2xl">
-              <img
-                src={fullscreenImage.imageUrl}
-                alt={fullscreenImage.titleEn}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-contain max-h-[80vh] mx-auto"
-              />
-              <div className="p-6 bg-zinc-900 border-t border-white/10 text-white">
-                <span className="text-xs font-bold text-white/60 uppercase">
-                  {language === 'RU' ? fullscreenImage.tagRu : fullscreenImage.tagEn} • {fullscreenImage.spec}
+              <div className="relative flex-1 w-full min-h-0 overflow-hidden flex items-center justify-center bg-black">
+                <img
+                  src={fullscreenImage.imageUrl}
+                  alt={fullscreenImage.title[language]}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-contain mx-auto"
+                />
+                <button
+                  onClick={() => setFullscreenImage(null)}
+                  className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 sm:p-2.5 rounded-full bg-black/40 hover:bg-white hover:text-zinc-950 text-white border border-white/20 transition-all z-10 backdrop-blur-md shadow-lg"
+                >
+                  <X className="w-4 h-4 sm:w-5 sm:h-5" />
+                </button>
+              </div>
+              <div className="shrink-0 p-4 sm:p-6 bg-zinc-900 border-t border-white/10 text-white overflow-y-auto max-h-[30vh]">
+                <span className="text-[10px] sm:text-xs font-bold text-white/60 uppercase tracking-widest">
+                  {fullscreenImage.tag[language]} • {fullscreenImage.spec}
                 </span>
-                <h3 className="text-xl font-bold font-display uppercase mt-1">
-                  {language === 'RU' ? fullscreenImage.titleRu : fullscreenImage.titleEn}
+                <h3 className="text-lg sm:text-xl font-bold font-display uppercase mt-1 tracking-tight">
+                  {fullscreenImage.title[language]}
                 </h3>
-                <p className="text-xs text-white/80 mt-1">
-                  {language === 'RU' ? fullscreenImage.descriptionRu : fullscreenImage.descriptionEn}
+                <p className="text-[11px] sm:text-xs text-white/80 mt-1.5 sm:mt-2 leading-relaxed">
+                  {fullscreenImage.description[language]}
                 </p>
               </div>
             </div>

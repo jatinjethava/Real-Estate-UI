@@ -26,23 +26,20 @@ export const InteractiveHotspots: React.FC<InteractiveHotspotsProps> = ({
             style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
             className="absolute z-40 -translate-x-1/2 -translate-y-1/2"
           >
-            {/* Pulsing White Node Ring */}
             <button
               onClick={() => onSelectHotspot(isActive ? null : spot.id)}
               aria-label={spot.title[language]}
               className="relative group focus:outline-none"
             >
               <span className="absolute -inset-3 rounded-full bg-white/20 animate-ping opacity-75 group-hover:bg-white/40" />
-              <span className={`relative flex items-center justify-center w-6 h-6 rounded-full border-2 transition-all duration-300 ${
-                isActive
-                  ? 'bg-white text-zinc-950 border-white scale-125 shadow-[0_0_15px_rgba(255,255,255,0.8)]'
-                  : 'bg-zinc-900/90 text-white border-white/80 hover:border-white hover:bg-white hover:text-zinc-950 scale-100'
-              }`}>
+              <span className={`relative flex items-center justify-center w-6 h-6 rounded-full border-2 transition-all duration-300 ${isActive
+                ? 'bg-white text-zinc-950 border-white scale-125 shadow-[0_0_15px_rgba(255,255,255,0.8)]'
+                : 'bg-zinc-900/90 text-white border-white/80 hover:border-white hover:bg-white hover:text-zinc-950 scale-100'
+                }`}>
                 <span className="w-2 h-2 rounded-full bg-current" />
               </span>
             </button>
 
-            {/* Popover / Tooltip detail when active */}
             <AnimatePresence>
               {isActive && (
                 <motion.div
@@ -50,13 +47,12 @@ export const InteractiveHotspots: React.FC<InteractiveHotspotsProps> = ({
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 5, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className={`absolute bottom-full mb-3 w-56 sm:w-72 p-3.5 sm:p-4 rounded-xl bg-zinc-950/95 border border-white/30 text-white shadow-2xl backdrop-blur-2xl pointer-events-auto ${
-                    spot.x < 30
-                      ? 'left-0 translate-x-0'
-                      : spot.x > 70
+                  className={`absolute bottom-full mb-3 w-56 sm:w-72 p-3.5 sm:p-4 rounded-xl bg-zinc-950/95 border border-white/30 text-white shadow-2xl backdrop-blur-2xl pointer-events-auto ${spot.x < 30
+                    ? 'left-0 translate-x-0'
+                    : spot.x > 70
                       ? 'right-0 left-auto translate-x-0'
                       : 'left-1/2 -translate-x-1/2'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-start justify-between gap-2 mb-2">
                     <span className="inline-flex items-center gap-1 text-[10px] font-bold tracking-widest text-zinc-950 bg-white px-2 py-0.5 rounded-full uppercase">

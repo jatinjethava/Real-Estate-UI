@@ -327,7 +327,7 @@ export const PlanFilterSearchSection: React.FC<PlanFilterSearchSectionProps> = (
               </div>
             </div>
 
-            <div className="relative w-full min-h-[380px] sm:min-h-[500px] lg:min-h-[580px] overflow-hidden flex items-center justify-center bg-[#eae8df]">
+            <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[650px] overflow-hidden flex items-center justify-center bg-[#eae8df]">
 
               <div className="absolute inset-0 plan-grid-pattern opacity-30 z-10 pointer-events-none" />
 
@@ -335,7 +335,7 @@ export const PlanFilterSearchSection: React.FC<PlanFilterSearchSectionProps> = (
                 src={currentPlan.img}
                 alt={currentPlan.title}
                 referrerPolicy="no-referrer"
-                className="w-full h-[80vh] object-cover mix-blend-multiply opacity-85 transition-transform duration-1000 group-hover:scale-105 filter grayscale contrast-125"
+                className="w-[90%] sm:w-[85%] h-[80%] sm:h-[75%] object-contain mix-blend-multiply opacity-85 transition-transform duration-1000 group-hover:scale-105 filter grayscale contrast-125"
               />
 
               <div className="absolute inset-0 z-20 pointer-events-none p-6 sm:p-12 flex flex-col justify-between">

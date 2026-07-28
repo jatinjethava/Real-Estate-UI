@@ -3,7 +3,6 @@ import { HeaderNav } from './components/HeaderNav';
 import { HeroTypography } from './components/HeroTypography';
 import { VillaSequenceShowcase } from './components/VillaSequenceShowcase';
 import { ProjectSpecsCard } from './components/ProjectSpecsCard';
-import { InteractiveHotspots } from './components/InteractiveHotspots';
 import { ProjectDescriptions } from './components/ProjectDescriptions';
 import { OrderProjectModal } from './components/OrderProjectModal';
 import { RealEstateGallery } from './components/RealEstateGallery';
@@ -38,17 +37,6 @@ export default function App() {
         </div>
 
         <VillaSequenceShowcase language={language} />
-
-        {bgMode !== 'minimal' && (
-          <div className="px-2 sm:px-8 pt-4 sm:pt-8">
-            <InteractiveHotspots
-              hotspots={hotspots}
-              activeHotspotId={activeHotspotId}
-              onSelectHotspot={setActiveHotspotId}
-              language={language}
-            />
-          </div>
-        )}
 
         <div id="about" className="relative z-30 w-full max-w-7xl mx-auto px-2 sm:px-8 pt-4 sm:pt-6 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 scroll-mt-24">
           <ProjectSpecsCard project={projectInfo} language={language} />

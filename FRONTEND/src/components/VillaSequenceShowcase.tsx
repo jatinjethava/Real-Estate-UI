@@ -164,7 +164,7 @@ export const VillaSequenceShowcase: React.FC<VillaSequenceShowcaseProps> = ({ la
 
   return (
     <section ref={containerRef} className="relative w-full h-[350vh] bg-black">
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+      <div className="sticky top-0 h-[100dvh] w-full overflow-hidden flex items-center justify-center">
         {!isLoaded && (
           <div className="absolute inset-0 z-30 bg-[#0a0a0d] flex flex-col items-center justify-center gap-4">
             <div className="flex items-center gap-3 text-xs tracking-widest uppercase text-white/60 font-mono">
@@ -183,7 +183,7 @@ export const VillaSequenceShowcase: React.FC<VillaSequenceShowcaseProps> = ({ la
         <canvas
           ref={canvasRef}
           className="w-full h-full object-cover block"
-          style={{ width: '100vw', height: '100vh' }}
+          style={{ width: '100vw', height: '100dvh' }}
         />
 
         <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#0a0a0d] to-transparent pointer-events-none z-10" />

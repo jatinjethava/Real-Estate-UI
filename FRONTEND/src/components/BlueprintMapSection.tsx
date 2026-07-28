@@ -16,6 +16,8 @@ import {
   Home,
   Check,
 } from 'lucide-react';
+import { InteractiveHotspots } from './InteractiveHotspots';
+import { hotspots } from '../data/projectData';
 
 interface BlueprintMapSectionProps {
   language: Language;
@@ -321,7 +323,7 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 sm:p-4 rounded-2xl bg-black/20 border border-current/10 text-xs">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 sm:p-4 rounded-2xl bg-black/20 border border-current/10 text-xs mb-6 sm:mb-8">
           <span className="font-bold tracking-widest uppercase flex items-center gap-2 text-current/80 text-[11px] sm:text-xs">
             <Grid className="w-4 h-4 text-sky-400 shrink-0" />
             {t.layersTitle}:
@@ -335,7 +337,7 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
                 : 'bg-black/20 border-current/20 opacity-50'
                 }`}
             >
-              {showAxes ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+              {showAxes ? <Eye className="w-3.5 h-3.5 shrink-0" /> : <EyeOff className="w-3.5 h-3.5 shrink-0" />}
               {t.axes}
             </button>
 
@@ -346,7 +348,7 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
                 : 'bg-black/20 border-current/20 opacity-50'
                 }`}
             >
-              {showPiles ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+              {showPiles ? <Eye className="w-3.5 h-3.5 shrink-0" /> : <EyeOff className="w-3.5 h-3.5 shrink-0" />}
               {t.piles}
             </button>
 
@@ -357,7 +359,7 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
                 : 'bg-black/20 border-current/20 opacity-50'
                 }`}
             >
-              {showDimensions ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+              {showDimensions ? <Eye className="w-3.5 h-3.5 shrink-0" /> : <EyeOff className="w-3.5 h-3.5 shrink-0" />}
               {t.dimensions}
             </button>
 
@@ -368,7 +370,7 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
                 : 'bg-black/20 border-current/20 opacity-50'
                 }`}
             >
-              {showLabels ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+              {showLabels ? <Eye className="w-3.5 h-3.5 shrink-0" /> : <EyeOff className="w-3.5 h-3.5 shrink-0" />}
               {t.labels}
             </button>
           </div>
@@ -376,9 +378,15 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-          <div className="lg:col-span-8 relative rounded-3xl overflow-hidden border border-current/20 shadow-2xl bg-black/40 p-4 sm:p-6 min-h-[460px] flex flex-col justify-between">
+          <div className="lg:col-span-8 relative rounded-3xl overflow-hidden border border-current/20 shadow-2xl bg-black/40 p-4 sm:p-6 min-h-[250px] sm:min-h-[460px] flex flex-col justify-between">
 
             <div className="relative w-full aspect-[16/9] flex items-center justify-center overflow-hidden">
+              <InteractiveHotspots
+                hotspots={hotspots}
+                activeHotspotId={activeHotspotId}
+                onSelectHotspot={onSelectHotspot}
+                language={language}
+              />
               <svg
                 viewBox="0 0 1200 650"
                 className="w-full h-full select-none"
@@ -668,12 +676,12 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
               </svg>
             </div>
 
-            <div className="mt-4 flex items-center justify-between text-[11px] font-mono text-current/70 border-t border-current/10 pt-3">
+            <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] font-mono text-current/70 border-t border-current/10 pt-3">
               <span className="flex items-center gap-1.5">
-                <Info className="w-3.5 h-3.5 text-sky-400" />
+                <Info className="w-3.5 h-3.5 text-sky-400 shrink-0" />
                 {t.clickRoomHint}
               </span>
-              <span className="font-bold text-sky-400 uppercase tracking-widest">
+              <span className="font-bold text-sky-400 uppercase tracking-widest text-left sm:text-right">
                 SCALE 1:100 • ZROBIM CAD
               </span>
             </div>
