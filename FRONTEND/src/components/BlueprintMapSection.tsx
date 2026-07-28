@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { Language } from '../types';
 import {
   Layers,
   Sparkles,
-  Maximize2,
   CheckCircle2,
   Info,
-  Compass,
-  Ruler,
   Grid,
   Eye,
   EyeOff,
   ArrowRight,
-  Home,
-  Check,
 } from 'lucide-react';
 import { InteractiveHotspots } from './InteractiveHotspots';
 import { hotspots } from '../data/projectData';
@@ -378,9 +373,9 @@ export const BlueprintMapSection: React.FC<BlueprintMapSectionProps> = ({
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-          <div className="lg:col-span-8 relative rounded-3xl overflow-hidden border border-current/20 shadow-2xl bg-black/40 p-4 sm:p-6 min-h-[250px] sm:min-h-[460px] flex flex-col justify-between">
+          <div className="lg:col-span-8 relative rounded-3xl border border-current/20 shadow-2xl bg-black/40 p-4 sm:p-6 min-h-[250px] sm:min-h-[460px] flex flex-col justify-between">
 
-            <div className="relative w-full aspect-[16/9] flex items-center justify-center overflow-hidden">
+            <div className="relative w-full aspect-[1200/650] flex items-center justify-center">
               <InteractiveHotspots
                 hotspots={hotspots}
                 activeHotspotId={activeHotspotId}
