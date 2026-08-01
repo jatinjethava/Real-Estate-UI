@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import { Language } from '../types';
-import { ArrowUpRight, Mail, Phone, MapPin, Send, Instagram, Linkedin, Youtube, ArrowUp, Globe, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, Mail, Phone, MapPin, Send, Instagram, Linkedin, Youtube, ArrowUp, Globe, CheckCircle2, Loader2 } from 'lucide-react';
 
 interface FooterSectionProps {
   language: Language;
@@ -12,16 +13,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
   onOrderClick,
 }) => {
   const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail('');
-      setTimeout(() => setSubscribed(false), 4000);
-    }
-  };
+  const [state, handleSubmit] = useForm('xdaqreav');
 
   const copy = {
     EN: {
@@ -224,25 +216,37 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
               {t.newsletterSub}
             </p>
 
-            <form onSubmit={handleSubscribe} className="w-full flex flex-col gap-2">
+            <form onSubmit={handleSubmit} className="w-full flex flex-col gap-2">
               <div className="relative w-full">
                 <input
                   type="email"
+                  name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={t.placeholder}
                   required
                   className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900 border border-white/20 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-sky-400 transition-colors"
                 />
+                <ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs text-red-400 mt-1" />
               </div>
               <button
                 type="submit"
-                className="w-full py-2.5 px-4 rounded-xl bg-sky-500 hover:bg-sky-400 text-zinc-950 font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                disabled={state.submitting}
+                className="w-full py-2.5 px-4 rounded-xl bg-sky-500 hover:bg-sky-400 disabled:opacity-50 text-zinc-950 font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md"
               >
-                <span>{t.subscribeBtn}</span>
-                <Send className="w-3.5 h-3.5" />
+                {state.submitting ? (
+                  <>
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                    <span>Submitting...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>{t.subscribeBtn}</span>
+                    <Send className="w-3.5 h-3.5" />
+                  </>
+                )}
               </button>
-              {subscribed && (
+              {state.succeeded && (
                 <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-medium mt-1">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>{t.subscribedMsg}</span>

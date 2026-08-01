@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useForm, ValidationError } from '@formspree/react';
 import { Language } from '../types';
-import { X, CheckCircle, ArrowRight, Building2, Mail, Phone, MapPin } from 'lucide-react';
+import { X, CheckCircle, ArrowRight, Building2, Mail, Phone, MapPin, Loader2 } from 'lucide-react';
 
 interface OrderProjectModalProps {
   isOpen: boolean;
@@ -14,7 +15,7 @@ export const OrderProjectModal: React.FC<OrderProjectModalProps> = ({
   onClose,
   language,
 }) => {
-  const [submitted, setSubmitted] = useState(false);
+  const [state, handleSubmit] = useForm('xdaqreav');
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -22,11 +23,6 @@ export const OrderProjectModal: React.FC<OrderProjectModalProps> = ({
     area: '150-250 m²',
     notes: '',
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
 
   const copy = {
     EN: {
@@ -43,7 +39,7 @@ export const OrderProjectModal: React.FC<OrderProjectModalProps> = ({
       notesLabel: 'Project Notes',
       notesPlaceholder: 'Site requirements, glazing options, terrain details...',
       submitBtn: 'SUBMIT SPECIFICATION',
-      locations: 'New Delhi • Mumbai • Global',
+      locations: 'Surat • Gujarat • India',
     },
     HI: {
       receivedTitle: 'आवेदन प्राप्त हुआ',
@@ -59,7 +55,7 @@ export const OrderProjectModal: React.FC<OrderProjectModalProps> = ({
       notesLabel: 'प्रोजेक्ट टिप्पणियाँ',
       notesPlaceholder: 'भूमि संबंधी आवश्यकताएं, कांच के विकल्प, इत्यादि...',
       submitBtn: 'आवेदन जमा करें',
-      locations: 'नई दिल्ली • मुंबई • वैश्विक',
+      locations: 'सूरत • गुजरात • भारत',
     },
     GU: {
       receivedTitle: 'અરજી પ્રાપ્ત થઈ',
@@ -75,7 +71,7 @@ export const OrderProjectModal: React.FC<OrderProjectModalProps> = ({
       notesLabel: 'પ્રોજેક્ટ નોંધો',
       notesPlaceholder: 'જમીન વિગતો, સાધન સામગ્રી, ખાસ પસંદગીઓ...',
       submitBtn: 'વિગતો સબમિટ કરો',
-      locations: 'અમદાવાદ • મુંબઈ • ગ્લોબલ',
+      locations: 'સુરત • ગુજરાત • ભારત',
     },
   };
 
@@ -93,25 +89,25 @@ export const OrderProjectModal: React.FC<OrderProjectModalProps> = ({
             className="fixed inset-0 bg-zinc-950/80 backdrop-blur-xl"
           />
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.3 }}
-              className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-zinc-900 border border-white/20 rounded-3xl p-5 sm:p-8 text-white shadow-2xl z-10 my-auto"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ duration: 0.3 }}
+            className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-zinc-900 border border-white/20 rounded-3xl p-5 sm:p-8 text-white shadow-2xl z-10 my-auto"
+          >
+            <button
+              onClick={onClose}
+              aria-label="Close modal"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full border border-white/20 text-white/70 hover:text-white hover:border-white transition-colors cursor-pointer"
             >
-              <button
-                onClick={onClose}
-                aria-label="Close modal"
-                className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full border border-white/20 text-white/70 hover:text-white hover:border-white transition-colors cursor-pointer"
-              >
               <X className="w-5 h-5" />
             </button>
 
-            {submitted ? (
+            {state.succeeded ? (
               <div className="py-12 text-center space-y-4">
                 <div className="w-16 h-16 bg-white text-zinc-950 rounded-full flex items-center justify-center mx-auto shadow-xl">
-                  <CheckCircle className="w-8 h-8" />
+                  <CheckCircle className="w-8 h-8 text-emerald-600" />
                 </div>
                 <h3 className="text-2xl font-bold font-display uppercase tracking-wider">
                   {t.receivedTitle}
@@ -120,11 +116,8 @@ export const OrderProjectModal: React.FC<OrderProjectModalProps> = ({
                   {t.receivedDesc}
                 </p>
                 <button
-                  onClick={() => {
-                    setSubmitted(false);
-                    onClose();
-                  }}
-                  className="mt-6 px-8 py-3 bg-white text-zinc-950 font-bold rounded-full hover:bg-white/90 transition-all text-xs tracking-widest uppercase"
+                  onClick={onClose}
+                  className="mt-6 px-8 py-3 bg-white text-zinc-950 font-bold rounded-full hover:bg-white/90 transition-all text-xs tracking-widest uppercase cursor-pointer"
                 >
                   {t.close}
                 </button>
@@ -154,11 +147,13 @@ export const OrderProjectModal: React.FC<OrderProjectModalProps> = ({
                     <input
                       type="text"
                       required
+                      name="name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder={t.namePlaceholder}
                       className="w-full bg-zinc-950/80 border border-white/20 rounded-xl px-4 py-3 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white transition-colors"
                     />
+                    <ValidationError prefix="Name" field="name" errors={state.errors} className="text-xs text-red-400 mt-1" />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -169,11 +164,13 @@ export const OrderProjectModal: React.FC<OrderProjectModalProps> = ({
                       <input
                         type="tel"
                         required
+                        name="phone"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 98765 43210"
                         className="w-full bg-zinc-950/80 border border-white/20 rounded-xl px-4 py-3 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white transition-colors"
                       />
+                      <ValidationError prefix="Phone" field="phone" errors={state.errors} className="text-xs text-red-400 mt-1" />
                     </div>
                     <div>
                       <label className="block text-xs uppercase font-semibold text-white/80 mb-1">
@@ -182,11 +179,13 @@ export const OrderProjectModal: React.FC<OrderProjectModalProps> = ({
                       <input
                         type="email"
                         required
+                        name="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="client@zrobim.com"
                         className="w-full bg-zinc-950/80 border border-white/20 rounded-xl px-4 py-3 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white transition-colors"
                       />
+                      <ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs text-red-400 mt-1" />
                     </div>
                   </div>
 
@@ -195,6 +194,7 @@ export const OrderProjectModal: React.FC<OrderProjectModalProps> = ({
                       {t.areaLabel}
                     </label>
                     <select
+                      name="area"
                       value={formData.area}
                       onChange={(e) => setFormData({ ...formData, area: e.target.value })}
                       className="w-full bg-zinc-950/80 border border-white/20 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-white transition-colors"
@@ -212,19 +212,31 @@ export const OrderProjectModal: React.FC<OrderProjectModalProps> = ({
                     </label>
                     <textarea
                       rows={3}
+                      name="notes"
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                       placeholder={t.notesPlaceholder}
                       className="w-full bg-zinc-950/80 border border-white/20 rounded-xl px-4 py-3 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white transition-colors resize-none"
                     />
+                    <ValidationError prefix="Notes" field="notes" errors={state.errors} className="text-xs text-red-400 mt-1" />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 bg-white text-zinc-950 font-bold rounded-xl hover:bg-white/90 transition-all flex items-center justify-center gap-2 text-xs uppercase tracking-widest shadow-xl group cursor-pointer"
+                    disabled={state.submitting}
+                    className="w-full py-3.5 bg-white text-zinc-950 font-bold rounded-xl hover:bg-white/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 text-xs uppercase tracking-widest shadow-xl group cursor-pointer"
                   >
-                    <span>{t.submitBtn}</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    {state.submitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>{t.submitBtn}</span>
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </>
+                    )}
                   </button>
                 </form>
 
@@ -235,7 +247,7 @@ export const OrderProjectModal: React.FC<OrderProjectModalProps> = ({
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Mail className="w-3.5 h-3.5" />
-                    info@zrobim.com
+                    jatinjethava3125@gmail.com
                   </span>
                 </div>
               </div>
